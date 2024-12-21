@@ -61,7 +61,7 @@ def main():
   print(f"LOWER_Z: {LOWER_Z}")
   print(f"ASCII_OFFSET: {ASCII_OFFSET}")
   
-def encrypt(text) -> str:
+def encrypt(text="") -> str:
   """
   Encrypts text by shifting each alphabetical character forward by 1 in the 
   alphabet. If the character is 'z' or 'Z' it is shifted to 'a' or 'A'.
