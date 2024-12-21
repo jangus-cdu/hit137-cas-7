@@ -34,10 +34,12 @@ def main():
   # Special characters and numbers remain unchanged
 
   # ~DEBUG~ Try encrypt() function on empty string - what happens?
+  #  - Remove for final version!
   encrypted_text = encrypt("")
   print(f"Encrypted empty string: '{encrypted_text}'")
 
   # ~DEBUG~ What happens if we don't pass anything to encrypt()?
+  #  - Remove for final version!
   encrypted_text = encrypt()
   print(f"Encrypted None: '{encrypted_text}'")
   # Seems the program crashes because no paramter is passed to encrypt()
@@ -53,7 +55,7 @@ def main():
   print("Encypted text:")
   print(encrypted_text)
 
-  # ~DEBUG~ Displaying ASCII values  
+  # ~DEBUG~ Displaying ASCII values - Remove for final version
   # print(f"UPPER_A: {UPPER_A}")
   # print(f"UPPER_Z: {UPPER_Z}")
   # print(f"LOWER_A: {LOWER_A}")
