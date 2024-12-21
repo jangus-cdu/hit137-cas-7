@@ -27,6 +27,7 @@ def main():
   infile = open(INPUT_FILENAME)
   outfile = open(OUTPUT_FILENAME, "w")
   encrypted_text = ""
+  raw_text = ""
 
   # Encrypting algorithm
   # Increment alphabetical characters by 1. If the character is 'z' or 'Z' 
@@ -45,6 +46,7 @@ def main():
   # Seems the program crashes because no paramter is passed to encrypt()
   
   for line in infile:
+    raw_text += line
     encrypted_text += encrypt(line) # Encrypt each line
 
   infile.close()
@@ -60,7 +62,10 @@ def main():
   print("Decrypted text:")
   print(decrypted_text)
 
-  
+  # ~DEBUG~ compare original and decrypted texts - Remove for final version
+  print("Compare original and decrypted texts - same??:")
+  print(raw_text ==  decrypted_text)
+  # YES!!
 
   # ~DEBUG~ Displaying ASCII values - Remove for final version
   # print(f"UPPER_A: {UPPER_A}")
