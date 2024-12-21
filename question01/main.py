@@ -15,7 +15,6 @@ UPPER_A = ord("A")
 UPPER_Z = ord("Z")
 LOWER_A = ord("a")
 LOWER_Z = ord("z")
-ASCII_OFFSET = abs(UPPER_Z-UPPER_A)
 
 
 def main():
