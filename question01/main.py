@@ -51,9 +51,16 @@ def main():
   outfile.write(encrypted_text)
   outfile.close()
 
-  # ~DEBUG~ Displaying encrypted text
+  # ~DEBUG~ Displaying encrypted text - Remove for final version
   print("Encypted text:")
   print(encrypted_text)
+
+  decrypted_text = decrypt(encrypted_text)
+  # ~DEBUG~ Displaying decrypted text - Remove for final version
+  print("Decrypted text:")
+  print(decrypted_text)
+
+  
 
   # ~DEBUG~ Displaying ASCII values - Remove for final version
   # print(f"UPPER_A: {UPPER_A}")
@@ -87,6 +94,21 @@ def encrypt(text="") -> str:
       encrypted_text += character
 
   return encrypted_text
+
+def decrypt(text="") -> str:
+    decrypted_text = ""
+    for character in text:
+      if str.isalpha(character):
+        # Uppercase 'A'
+        if ord(character) == UPPER_A:
+          character = chr(UPPER_Z)
+        # Lowercase 'a'
+        elif ord(character) == LOWER_A:
+          character = chr(LOWER_Z)
+        else:
+          character = chr(ord(character) - 1)
+      decrypted_text += character
+    return decrypted_text
 
 
 # Check that the program is being run directly and not imported as a module.
