@@ -1,12 +1,21 @@
 # HIT137 - Group Assignment 2 - Sandpit
 
-## We can use this folder to experiment with Python code and using GitHub.
-
 ## CAS Group 7 Members
 
 - Jason Angus - S365855
 - Marco Giacomelli - S383510
 - Yoana Vasileva - S263707
+
+## We can use this folder to experiment with Python code and using GitHub
+
+Create a branch, make some changes, commit, push, and create a pull request.
+
+Suggest a naming convention for branches:
+
+- student_name-quetion_number-feature_name
+- eg. jason-question01-encrypt_text
+- or jason-sandpit-main-function
+- something that indicates who is working on a particular feature, which question it is for, and what kind of change is being made.
 
 ## Question 1
 
@@ -29,6 +38,11 @@ Create a function to decrypt the content, and a function to check the correctnes
 ### Decryption
 
 ## References
+
+### Git / GitHub workflow references
+
+- [Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world)
+
 
 ### Python Language References
 

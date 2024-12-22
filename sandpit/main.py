@@ -16,6 +16,9 @@ file and writes the encrypted text to a new file.
 def main():
   print("HIT137 - Group Assignment 2")
   print("Question 1")
+  print("Sandpit")
+  print("We can try using this folder to practice using GitHub.")
+  print("Create a branch, make some changes, commit, push, and create a pull request.")
 
 # Check that the program is being run directly and not imported as a module.
 # See https://docs.python.org/3/library/__main__.html for more information.
