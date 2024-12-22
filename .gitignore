@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Output file generated in question 1.
+encrypted_text.txt
+
 # C extensions
 *.so
 
