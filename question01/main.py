@@ -28,14 +28,53 @@ def main():
   infile = open(INPUT_FILENAME)
   outfile = open(OUTPUT_FILENAME, "w")
   encrypted_text = ""
-  
-  # First attempt at encrypting text
+
   # Encrypting algorithm
   # Increment alphabetical characters by 1. If the character is 'z' or 'Z' 
   # increment it to 'a' or 'A'
   # Special characters and numbers remain unchanged
+
+  # ~DEBUG~ Try encrypt() function on empty string - what happens?
+  encrypted_text = encrypt("")
+  print(f"Encrypted empty string: '{encrypted_text}'")
+
+  # ~DEBUG~ What happens if we don't pass anything to encrypt()?
+  encrypted_text = encrypt()
+  print(f"Encrypted None: '{encrypted_text}'")
+  # Seems the program crashes because no paramter is passed to encrypt()
+  
   for line in infile:
-    for character in line:
+    encrypted_text += encrypt(line) # Encrypt each line
+
+  infile.close()
+  outfile.write(encrypted_text)
+  outfile.close()
+
+  # ~DEBUG~ Displaying encrypted text
+  print("Encypted text:")
+  print(encrypted_text)
+
+  # ~DEBUG~ Displaying ASCII values  
+  print(f"UPPER_A: {UPPER_A}")
+  print(f"UPPER_Z: {UPPER_Z}")
+  print(f"LOWER_A: {LOWER_A}")
+  print(f"LOWER_Z: {LOWER_Z}")
+  print(f"ASCII_OFFSET: {ASCII_OFFSET}")
+  
+def encrypt(text="") -> str:
+  """
+  Encrypts text by shifting each alphabetical character forward by 1 in the 
+  alphabet. If the character is 'z' or 'Z' it is shifted to 'a' or 'A'.
+  Non-alphabetical characters are not changed.
+
+  Parameters:
+  text (str): The text to be encrypted
+
+  Returns:
+  str: The encrypted text
+  """
+  encrypted_text = ""
+  for character in text:
       if str.isalpha(character):
         # Uppercase Letters
         if ord(character) >= UPPER_A and ord(character) <= UPPER_Z:
@@ -47,16 +86,8 @@ def main():
           character = chr(LOWER_A + offset)
       encrypted_text += character
 
-  print("Encypted text:")
-  print(encrypted_text)
+  return encrypted_text
 
-  # ~DEBUG~ Displaying ASCII values  
-  print(f"UPPER_A: {UPPER_A}")
-  print(f"UPPER_Z: {UPPER_Z}")
-  print(f"LOWER_A: {LOWER_A}")
-  print(f"LOWER_Z: {LOWER_Z}")
-  print(f"ASCII_OFFSET: {ASCII_OFFSET}")
-  
 
 # Check that the program is being run directly and not imported as a module.
 # See https://docs.python.org/3/library/__main__.html for more information.
