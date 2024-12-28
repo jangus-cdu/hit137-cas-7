@@ -15,7 +15,6 @@ UPPER_A = ord("A")
 UPPER_Z = ord("Z")
 LOWER_A = ord("a")
 LOWER_Z = ord("z")
-ASCII_OFFSET = abs(UPPER_Z-UPPER_A)
 
 
 def main():
@@ -35,10 +34,12 @@ def main():
   # Special characters and numbers remain unchanged
 
   # ~DEBUG~ Try encrypt() function on empty string - what happens?
+  #  - Remove for final version!
   encrypted_text = encrypt("")
   print(f"Encrypted empty string: '{encrypted_text}'")
 
   # ~DEBUG~ What happens if we don't pass anything to encrypt()?
+  #  - Remove for final version!
   encrypted_text = encrypt()
   print(f"Encrypted None: '{encrypted_text}'")
   # Seems the program crashes because no paramter is passed to encrypt()
@@ -54,12 +55,11 @@ def main():
   print("Encypted text:")
   print(encrypted_text)
 
-  # ~DEBUG~ Displaying ASCII values  
-  print(f"UPPER_A: {UPPER_A}")
-  print(f"UPPER_Z: {UPPER_Z}")
-  print(f"LOWER_A: {LOWER_A}")
-  print(f"LOWER_Z: {LOWER_Z}")
-  print(f"ASCII_OFFSET: {ASCII_OFFSET}")
+  # ~DEBUG~ Displaying ASCII values - Remove for final version
+  # print(f"UPPER_A: {UPPER_A}")
+  # print(f"UPPER_Z: {UPPER_Z}")
+  # print(f"LOWER_A: {LOWER_A}")
+  # print(f"LOWER_Z: {LOWER_Z}")
   
 def encrypt(text="") -> str:
   """
@@ -76,14 +76,14 @@ def encrypt(text="") -> str:
   encrypted_text = ""
   for character in text:
       if str.isalpha(character):
-        # Uppercase Letters
-        if ord(character) >= UPPER_A and ord(character) <= UPPER_Z:
-          offset = ((ord(character) - UPPER_A) + 1) % 26
-          character = chr(UPPER_A + offset)
-        # Lowercase Letters
-        elif ord(character) >= LOWER_A and ord(character) <= LOWER_Z:
-          offset = ((ord(character) - LOWER_A) + 1) % 26
-          character = chr(LOWER_A + offset)
+        # Uppercase 'Z'
+        if ord(character) == UPPER_Z:
+          character = chr(UPPER_A)
+        # Lowercase 'z'
+        elif ord(character) == LOWER_Z:
+          character = chr(LOWER_A)
+        else:
+          character = chr(ord(character) + 1)
       encrypted_text += character
 
   return encrypted_text
