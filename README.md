@@ -21,6 +21,3 @@ GitHub repository for HIT137 Group Assignment 2
 
 - [CommonMark Spec](https://spec.commonmark.org/)
 
-### GitLab Flavored Markdown
-
-- [GitLab Flavored Markdown (GLFM)](https://docs.gitlab.com/ee/user/markdown.html)
