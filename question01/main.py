@@ -73,9 +73,11 @@ def encrypt(text="") -> str:
   Returns:
   str: The encrypted text
   """
-  encrypted_text = ""
+  encrypted_text = "" # For storing encrypted text
   for character in text:
+      # Check for alphabetical character 
       if str.isalpha(character):
+        # Wrap-around - Shift last letter of alphabet to first
         # Uppercase 'Z'
         if ord(character) == UPPER_Z:
           character = chr(UPPER_A)
@@ -83,6 +85,7 @@ def encrypt(text="") -> str:
         elif ord(character) == LOWER_Z:
           character = chr(LOWER_A)
         else:
+          # Basic encryption - shift forward by 1 character
           character = chr(ord(character) + 1)
       encrypted_text += character
 
