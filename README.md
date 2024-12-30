@@ -32,4 +32,3 @@ GitHub repository for HIT137 Group Assignment 2
 ### CommonMark Spec
 
 - [CommonMark Spec](https://spec.commonmark.org/)
-
