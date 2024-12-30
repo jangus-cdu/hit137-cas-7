@@ -27,7 +27,8 @@ def main():
   infile = open(INPUT_FILENAME)
   outfile = open(OUTPUT_FILENAME, "w")
   encrypted_text = ""
-
+  raw_text = ""
+  
   # Encrypting algorithm
   # Increment alphabetical characters by 1. If the character is 'z' or 'Z' 
   # increment it to 'a' or 'A'
@@ -45,21 +46,34 @@ def main():
   # Seems the program crashes because no paramter is passed to encrypt()
   
   for line in infile:
+    raw_text += line
     encrypted_text += encrypt(line) # Encrypt each line
 
   infile.close()
   outfile.write(encrypted_text)
   outfile.close()
 
-  # ~DEBUG~ Displaying encrypted text
+  # ~DEBUG~ Displaying encrypted text - Remove for final version
   print("Encypted text:")
   print(encrypted_text)
+
+  decrypted_text = decrypt(encrypted_text)
+  # ~DEBUG~ Displaying decrypted text - Remove for final version
+  print("Decrypted text:")
+  print(decrypted_text)
+
+  # ~DEBUG~ compare original and decrypted texts - Remove for final version
+  print("Compare original and decrypted texts - same??:")
+  print(raw_text ==  decrypted_text)
+  # YES!!
 
   # ~DEBUG~ Displaying ASCII values - Remove for final version
   # print(f"UPPER_A: {UPPER_A}")
   # print(f"UPPER_Z: {UPPER_Z}")
   # print(f"LOWER_A: {LOWER_A}")
   # print(f"LOWER_Z: {LOWER_Z}")
+
+
   
 def encrypt(text="") -> str:
   """
@@ -88,7 +102,6 @@ def encrypt(text="") -> str:
           # Basic encryption - shift forward by 1 character
           character = chr(ord(character) + 1)
       encrypted_text += character
-
   return encrypted_text
 
 def decrypt(text="") -> str:
@@ -104,9 +117,10 @@ def decrypt(text="") -> str:
     Returns:
     str: The decrypted text
     """
-    decrypted_text = ""
+    decrypted_text = "" # Stores decrypted text
     for character in text:
       if str.isalpha(character):
+        # Wrap-around - Shift first letter of alphabet to last
         # Uppercase 'A'
         if ord(character) == UPPER_A:
           character = chr(UPPER_Z)
@@ -114,6 +128,7 @@ def decrypt(text="") -> str:
         elif ord(character) == LOWER_A:
           character = chr(LOWER_Z)
         else:
+          # Decrypt text - shift backward by 1 character
           character = chr(ord(character) - 1)
       decrypted_text += character
     return decrypted_text
