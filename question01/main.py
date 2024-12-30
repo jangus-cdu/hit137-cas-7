@@ -91,6 +91,34 @@ def encrypt(text="") -> str:
 
   return encrypted_text
 
+def decrypt(text="") -> str:
+    """
+    Decrypts text by shifting each alphabetical character backward by 1 
+    character in the alphabet. If the character is 'a' or 'A' it is shifted to 
+    'z' or 'Z' respectively.
+    Non-alphabetical characters are not changed.
+
+    Parameters:
+    text (str): The text to be decrypted
+
+    Returns:
+    str: The decrypted text
+    """
+    decrypted_text = ""
+    for character in text:
+      if str.isalpha(character):
+        # Uppercase 'A'
+        if ord(character) == UPPER_A:
+          character = chr(UPPER_Z)
+        # Lowercase 'a'
+        elif ord(character) == LOWER_A:
+          character = chr(LOWER_Z)
+        else:
+          character = chr(ord(character) - 1)
+      decrypted_text += character
+    return decrypted_text
+
+
 
 # Check that the program is being run directly and not imported as a module.
 # See https://docs.python.org/3/library/__main__.html for more information.
