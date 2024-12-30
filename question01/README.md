@@ -19,12 +19,17 @@ Create a function to decrypt the content, and a function to check the correctnes
 - If the letter is 'z' make it 'a' or if the letter is 'Z' make it 'A'
 - Special characters, and numbers remain unchanged.
 - Write encrypted text to file "encrypted_text.txt"
+- Create a function to check correctness of decrypt() function
 
 ## Algorithms
 
 ### Encryption
 
+- Shift each alphabetical character forward by 1 in the alphabet. If the character is 'z' or 'Z' it is shifted to 'a' or 'A'.
+
 ### Decryption
+
+- Decrypt the text by shifting each alphabetical character backward by 1 in the alphabet. If the character is 'a' or 'A' it is shifted to 'z' or 'Z' respectively.
 
 ## References
 
