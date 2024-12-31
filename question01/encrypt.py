@@ -3,7 +3,7 @@ HIT137 Assignment 2 Question 1
 File: encrypt.py
 
 Provides encryption function as required by Assignment 2 Question 1.
-
+Can test encryption function by running this module directly.
 """
 
 UPPER_A = ord("A")
@@ -44,7 +44,19 @@ def test_encrypt():
   """
   Tests the encrypt() function
   """
-  pass
+  PLAIN_TEXT = "The quick brown fox jumps over the lazy dog."
+  CODED_TEXT = "Uif rvjdl cspxo gpy kvnqt pwfs uif mbaz eph."
+  print(PLAIN_TEXT)
+  print(encrypt(PLAIN_TEXT))
+
+  # Test case 1: Empty string
+  assert encrypt("") == ""
+
+  # Test case 2: Encrypted plain text should match CODED_TEXT
+  assert encrypt(PLAIN_TEXT) == CODED_TEXT
+
+  print("All test cases passed!")
+
 
 def main():
   test_encrypt()
