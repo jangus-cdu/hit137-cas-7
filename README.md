@@ -16,6 +16,9 @@ GitHub repository for HIT137 Group Assignment 2
   - A good explanation on how to use GitHub flow to collaborate on projects.
   - Suggest we use this workflow for collaborating on this project.
 
+- [GitKraken](https://www.gitkraken.com)
+  - A git desktop gui
+
 ### Python Language References
 
 - [Python documentation](https://docs.python.org/3/)
