@@ -13,6 +13,7 @@ file and writes the encrypted text to a new file.
 """
 
 from encrypt import encrypt
+from decrypt import decrypt
 
 UPPER_A = ord("A")
 UPPER_Z = ord("Z")
@@ -69,43 +70,6 @@ def main():
   print("Compare original and decrypted texts - same??:")
   print(raw_text ==  decrypted_text)
   # YES!!
-
-  # ~DEBUG~ Displaying ASCII values - Remove for final version
-  # print(f"UPPER_A: {UPPER_A}")
-  # print(f"UPPER_Z: {UPPER_Z}")
-  # print(f"LOWER_A: {LOWER_A}")
-  # print(f"LOWER_Z: {LOWER_Z}")
-
-
-def decrypt(text="") -> str:
-    """
-    Decrypts text by shifting each alphabetical character backward by 1 
-    character in the alphabet. If the character is 'a' or 'A' it is shifted to 
-    'z' or 'Z' respectively.
-    Non-alphabetical characters are not changed.
-
-    Parameters:
-    text (str): The text to be decrypted
-
-    Returns:
-    str: The decrypted text
-    """
-    decrypted_text = "" # Stores decrypted text
-    for character in text:
-      if str.isalpha(character):
-        # Wrap-around - Shift first letter of alphabet to last
-        # Uppercase 'A'
-        if ord(character) == UPPER_A:
-          character = chr(UPPER_Z)
-        # Lowercase 'a'
-        elif ord(character) == LOWER_A:
-          character = chr(LOWER_Z)
-        else:
-          # Decrypt text - shift backward by 1 character
-          character = chr(ord(character) - 1)
-      decrypted_text += character
-    return decrypted_text
-
 
 
 # Check that the program is being run directly and not imported as a module.
