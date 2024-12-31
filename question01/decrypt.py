@@ -45,7 +45,18 @@ def test_decrypt():
   """
   Tests the decrypt() function
   """
-  pass
+  CODED_TEXT = "Uif 1 rvjdl cspxo gpy kvnqt pwfs uif mbaz eph."
+  PLAIN_TEXT = "The 1 quick brown fox jumps over the lazy dog."
+  print(CODED_TEXT)
+  print(decrypt(CODED_TEXT))
+
+  # Test case 1: Empty string
+  assert decrypt("") == ""
+
+  # Test case 2: Decrypted coded text should match PLAIN_TEXT
+  assert decrypt(CODED_TEXT) == PLAIN_TEXT
+
+  print("All test cases passed!")
 
 def main():
   test_decrypt()
