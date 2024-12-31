@@ -11,6 +11,9 @@ File: main.py
 This program uses a simple encryption method to encrypt the contents of a text 
 file and writes the encrypted text to a new file.
 """
+
+from encrypt import encrypt
+
 UPPER_A = ord("A")
 UPPER_Z = ord("Z")
 LOWER_A = ord("a")
@@ -73,36 +76,6 @@ def main():
   # print(f"LOWER_A: {LOWER_A}")
   # print(f"LOWER_Z: {LOWER_Z}")
 
-
-  
-def encrypt(text="") -> str:
-  """
-  Encrypts text by shifting each alphabetical character forward by 1 in the 
-  alphabet. If the character is 'z' or 'Z' it is shifted to 'a' or 'A'.
-  Non-alphabetical characters are not changed.
-
-  Parameters:
-  text (str): The text to be encrypted
-
-  Returns:
-  str: The encrypted text
-  """
-  encrypted_text = "" # For storing encrypted text
-  for character in text:
-      # Check for alphabetical character 
-      if str.isalpha(character):
-        # Wrap-around - Shift last letter of alphabet to first
-        # Uppercase 'Z'
-        if ord(character) == UPPER_Z:
-          character = chr(UPPER_A)
-        # Lowercase 'z'
-        elif ord(character) == LOWER_Z:
-          character = chr(LOWER_A)
-        else:
-          # Basic encryption - shift forward by 1 character
-          character = chr(ord(character) + 1)
-      encrypted_text += character
-  return encrypted_text
 
 def decrypt(text="") -> str:
     """
