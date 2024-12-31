@@ -15,21 +15,15 @@ file and writes the encrypted text to a new file.
 from encrypt import encrypt
 from decrypt import decrypt
 
-UPPER_A = ord("A")
-UPPER_Z = ord("Z")
-LOWER_A = ord("a")
-LOWER_Z = ord("z")
-
 
 def main():
   """
   This program encrypts text read from a file named 'raw_text.txt' and saves the
   encrypted text to a file named 'encrypted_text.txt'
   """
-  INPUT_FILENAME = 'raw_text.txt'
-  OUTPUT_FILENAME = 'encrypted_text.txt'
-  infile = open(INPUT_FILENAME)
-  outfile = open(OUTPUT_FILENAME, "w")
+  RAW_TEXT_FILE = 'raw_text.txt'
+  ENCRYPTED_TEXT_FILE = 'encrypted_text.txt'
+  infile = open(RAW_TEXT_FILE)
   encrypted_text = ""
   raw_text = ""
   
@@ -37,39 +31,28 @@ def main():
   # Increment alphabetical characters by 1. If the character is 'z' or 'Z' 
   # increment it to 'a' or 'A'
   # Special characters and numbers remain unchanged
-
-  # ~DEBUG~ Try encrypt() function on empty string - what happens?
-  #  - Remove for final version!
-  encrypted_text = encrypt("")
-  print(f"Encrypted empty string: '{encrypted_text}'")
-
-  # ~DEBUG~ What happens if we don't pass anything to encrypt()?
-  #  - Remove for final version!
-  encrypted_text = encrypt()
-  print(f"Encrypted None: '{encrypted_text}'")
-  # Seems the program crashes because no paramter is passed to encrypt()
   
+  # Read raw text from file line by line
   for line in infile:
     raw_text += line
     encrypted_text += encrypt(line) # Encrypt each line
 
   infile.close()
+
+  # Write the encrypted text to a file
+  outfile = open(ENCRYPTED_TEXT_FILE, "w")
   outfile.write(encrypted_text)
   outfile.close()
 
-  # ~DEBUG~ Displaying encrypted text - Remove for final version
-  print("Encypted text:")
-  print(encrypted_text)
-
+  # Now check that we can decrypt the encrypted text correctly
+  # raw_text has the plain unencrytpted text from the raw_text.txt file
+  # encrypted_text has the encrypted copy of raw_text
+  
   decrypted_text = decrypt(encrypted_text)
-  # ~DEBUG~ Displaying decrypted text - Remove for final version
-  print("Decrypted text:")
-  print(decrypted_text)
-
-  # ~DEBUG~ compare original and decrypted texts - Remove for final version
-  print("Compare original and decrypted texts - same??:")
-  print(raw_text ==  decrypted_text)
-  # YES!!
+  if decrypted_text == raw_text:
+    print("The decrypted text matches the original raw text.")
+  else:
+    print("The decrypted text does not match the original raw text.")
 
 
 # Check that the program is being run directly and not imported as a module.
