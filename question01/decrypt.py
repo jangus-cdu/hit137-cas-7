@@ -61,5 +61,6 @@ def test_decrypt():
 def main():
   test_decrypt()
 
+# If this is run as a high level module, run testing function
 if __name__ == "__main__":
   main()
