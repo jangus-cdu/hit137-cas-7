@@ -28,17 +28,24 @@ def get_files(path="") -> list[str]:
     files = os.listdir(path)
   return files
 
+# Files paths are relative to the location of this python script file.
+
 # List of temperature data files
 DATA_DIR = "temperature_data" # Directory containing the data files
 OUTPUT_DIR = "results" # Directory to save the analysys files
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
-    
-# Get data file names
-file_paths = get_files(DATA_DIR)
-if file_paths.__len__() == 0:
-    print("No data files found")
 
+if os.path.exists(DATA_DIR):
+    # Get data file names
+    file_paths = get_files(DATA_DIR)
+    if file_paths.__len__() == 0:
+        print("Error: No data files found")
+        exit()
+else:
+    print("Error: Data directory not found")
+    exit()
+    
 # file_paths = [
 #     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1986.csv",
 #     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1987.csv",
