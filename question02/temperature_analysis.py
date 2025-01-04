@@ -1,6 +1,25 @@
+"""
+Group Name: CAS/DAN 07
+Group Members:
+Jason Angus - S365855
+Marco Giacomelli - S383510
+Yoana Vasileva - S263707
+
+HIT137 Assignment 2 Question 2
+File: temperature_analysis.py
+
+This program analyses temperature data collected from multiple weather stations 
+in Australia. It calculates the average temperature for each month, finds the 
+station(s) with the largest temperature range, and identifies the warmest and 
+coolest station(s). The results are saved to the following files:
+- average_temp.txt: Contains the average temperature for each month across all years.
+- largest_temp_range_station.txt: Contains the station(s) with the largest temperature range.
+- warmest_and_coolest_station.txt: Contains the warmest and coolest station(s).
+"""
+
 import pandas as pd
 
-# List of file paths you provided
+# List of temperature data files
 file_paths = [
     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1986.csv",
     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1987.csv",
