@@ -11,7 +11,7 @@ File: temperature_analysis.py
 This program analyses temperature data collected from multiple weather stations 
 in Australia. It calculates the average temperature for each month, finds the 
 station(s) with the largest temperature range, and identifies the warmest and 
-coolest station(s). The results are saved to the following files:
+coolest station(s). The results are saved to the following files inside the results folder:
 - average_temp.txt: Contains the average temperature for each month across all years.
 - largest_temp_range_station.txt: Contains the station(s) with the largest temperature range.
 - warmest_and_coolest_station.txt: Contains the warmest and coolest station(s).
@@ -32,7 +32,7 @@ def get_files(path="") -> list[str]:
 
 # List of temperature data files
 DATA_DIR = "temperature_data" # Directory containing the data files
-OUTPUT_DIR = "results" # Directory to save the analysys files
+OUTPUT_DIR = "results" # Directory to save the analysis files
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 
@@ -45,29 +45,6 @@ if os.path.exists(DATA_DIR):
 else:
     print("Error: Data directory not found")
     exit()
-    
-# file_paths = [
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1986.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1987.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1988.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1989.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1990.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1991.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1992.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1993.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1994.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1995.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1996.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1997.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1998.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_1999.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_2000.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_2001.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_2002.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_2003.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_2004.csv",
-#     r"C:\Users\yoana\Downloads\CDU\Software Now\Assignment 2\HIT137 Assignment 2 SS 2024\temperature_data\stations_group_2005.csv"
-# ]
 
 # Initialize a list to store data from all files
 all_data = []
