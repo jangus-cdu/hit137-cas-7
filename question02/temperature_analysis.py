@@ -106,6 +106,7 @@ def setup_data_files(data_dir, output_dir) -> bool:
 
     return True  # Data files are ok
 
+
 def get_data(DATA_DIR, file_paths) -> list:
     """
     Uses pandas to read the data from each file in the file_paths list
@@ -131,6 +132,7 @@ def save_avg_temp(output_dir, monthly_avg):
         index_label="Month"
     )
 
+
 def save_large_temp_range(output_dir, largest_temp_range_stations):
     """
     Saves the stations with the largest temperature range to a file
@@ -141,6 +143,7 @@ def save_large_temp_range(output_dir, largest_temp_range_stations):
         header=["Station Name"],
         index=False
     )
+
 
 def save_warm_cool_stations(output_dir, warmest_stations, coolest_stations):
     """
